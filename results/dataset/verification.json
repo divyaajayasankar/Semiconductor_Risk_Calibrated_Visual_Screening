@@ -1,0 +1,113 @@
+{
+  "csv_path": "F:\\clu secom demo\\Semiconductor_Risk_Calibrated_Visual_Screening\\data\\raw\\carinthia_s\\data\\carinthia-s.csv",
+  "csv_exists": true,
+  "csv_rows": 4591,
+  "csv_columns": [
+    "image_path",
+    "mask_path",
+    "filename",
+    "label",
+    "image_abs",
+    "mask_abs"
+  ],
+  "missing_values": {
+    "image_path": 0,
+    "mask_path": 0,
+    "filename": 0,
+    "label": 0
+  },
+  "duplicate_filenames": 0,
+  "images_found": 4591,
+  "masks_found": 4591,
+  "images_missing": 0,
+  "masks_missing": 0,
+  "image_mask_size_mismatch": 0,
+  "image_sizes": {
+    "480x480": 4591
+  },
+  "image_modes": {
+    "L": 4591
+  },
+  "mask_modes": {
+    "L": 4587,
+    "RGBA": 2,
+    "RGB": 2
+  },
+  "shape_consistent": true,
+  "empty_masks_reference": 226,
+  "non_empty_masks_anomaly": 4365,
+  "class_distribution": {
+    "1": 55,
+    "2": 8,
+    "3": 4008,
+    "4": 289,
+    "5": 4,
+    "6": 227
+  },
+  "class_vs_ground_truth": {
+    "1": {
+      "reference": 0,
+      "anomaly": 55
+    },
+    "2": {
+      "reference": 0,
+      "anomaly": 8
+    },
+    "3": {
+      "reference": 0,
+      "anomaly": 4008
+    },
+    "4": {
+      "reference": 0,
+      "anomaly": 289
+    },
+    "5": {
+      "reference": 0,
+      "anomaly": 4
+    },
+    "6": {
+      "reference": 226,
+      "anomaly": 1
+    }
+  },
+  "mask_coverage_anomalies": {
+    "mean": 0.027187648156102837,
+    "median": 0.017621527777777778,
+    "min": 0.00021701388888888888,
+    "max": 0.8470703125
+  },
+  "ground_truth_rule": "EMPTY mask -> REFERENCE; NON-EMPTY mask -> ANOMALY",
+  "mask_threshold_for_pixels": 128,
+  "status": "PASS",
+  "split": {
+    "status": "created",
+    "manifest_hash": "59954a286e1235e4",
+    "role_counts": {
+      "TRAIN": {
+        "total": 90,
+        "reference": 90,
+        "anomaly": 0
+      },
+      "VALIDATION": {
+        "total": 460,
+        "reference": 23,
+        "anomaly": 437
+      },
+      "CALIBRATION": {
+        "total": 45,
+        "reference": 45,
+        "anomaly": 0
+      },
+      "POLICY_VALIDATION": {
+        "total": 897,
+        "reference": 23,
+        "anomaly": 874
+      },
+      "TEST": {
+        "total": 3099,
+        "reference": 45,
+        "anomaly": 3054
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "phase": 2,
+  "variant": "full",
+  "topk": 0.001,
+  "lambda": 1.0,
+  "alpha": 0.03,
+  "calibration_size": 45,
+  "cost_fn": 10.0,
+  "cost_fp": 1.0,
+  "smoothing_sigma": 2.0,
+  "selection": {
+    "topk_lambda": "VALIDATION (max ROC-AUC, then PR-AUC; ties -> lambda nearest 1, smaller k)",
+    "normalization": "VALIDATION references (robust median/MAD)",
+    "calibration": "CALIBRATION references only",
+    "alpha": "POLICY_VALIDATION (min 10*FN + 1*FP; ties -> smaller alpha)"
+  },
+  "min_attainable_p": 0.021739130434782608,
+  "backbone_checkpoint_sha256": "7940d91ae2e3593b",
+  "frozen": true
+}

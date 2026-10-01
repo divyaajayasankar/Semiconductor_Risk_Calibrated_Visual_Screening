@@ -1,0 +1,42 @@
+{
+  "train_intersect_test": 0,
+  "validation_intersect_test": 0,
+  "calibration_intersect_test": 0,
+  "policy_validation_intersect_test": 0,
+  "train_contains_only_reference": true,
+  "calibration_contains_only_reference": true,
+  "role_counts": {
+    "TRAIN": {
+      "total": 90,
+      "reference": 90,
+      "anomaly": 0
+    },
+    "VALIDATION": {
+      "total": 460,
+      "reference": 23,
+      "anomaly": 437
+    },
+    "CALIBRATION": {
+      "total": 45,
+      "reference": 45,
+      "anomaly": 0
+    },
+    "POLICY_VALIDATION": {
+      "total": 897,
+      "reference": 23,
+      "anomaly": 874
+    },
+    "TEST": {
+      "total": 3099,
+      "reference": 45,
+      "anomaly": 3054
+    }
+  },
+  "test_used_for": [
+    "final evaluation only (after policy freeze)"
+  ],
+  "status": "PASS",
+  "split_manifest": "created",
+  "manifest_hash": "59954a286e1235e4",
+  "seed": 42
+}

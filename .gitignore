@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+results/cache/
+dist/
+data/raw/carinthia_s/data/images/
+data/raw/carinthia_s/data/masks/
+
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+smoke_runs/
+*.db
+

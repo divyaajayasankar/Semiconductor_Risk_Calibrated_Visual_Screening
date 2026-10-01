@@ -1,0 +1,79 @@
+# =====================================================================
+# Risk-Calibrated and Cost-Aware Anomaly Detection Visual Screening for
+# Semiconductor Manufacturing Under Distribution Drift
+# Central experiment configuration (all paths relative to project root)
+# =====================================================================
+seed: 42
+
+paths:
+  data_dir: data/raw/carinthia_s/data          # contains images/, masks/, carinthia-s.csv
+  csv_name: carinthia-s.csv
+  models_dir: models
+  results_dir: results
+  reports_dir: reports
+
+data:
+  image_size: 256          # SEM images (480x480) are resized to image_size x image_size
+  mask_threshold: 128      # pixel >= threshold -> defect pixel (masks contain anti-aliasing)
+  # Ground truth: EMPTY mask -> REFERENCE (0), NON-EMPTY mask -> ANOMALY (1)
+
+split:
+  # Reference (empty-mask) images are distributed over all five roles.
+  reference:
+    train: 0.40
+    validation: 0.10
+    calibration: 0.20
+    policy_validation: 0.10
+    test: 0.20
+  # Anomalous images never enter TRAIN or CALIBRATION.
+  anomaly:
+    validation: 0.10
+    policy_validation: 0.20
+    test: 0.70
+
+model:
+  base_channels: 32
+  latent_channels: 64
+
+training:
+  epochs: 150
+  batch_size: 8
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  patience: 20             # early stopping on reference-validation reconstruction loss
+  augment: true            # flips + 90-degree rotations of reference images
+  device: auto             # auto | cpu | cuda
+  eval_batch_size: 16
+
+phase1:
+  threshold_quantile: 0.95 # threshold = 95th percentile of calibration-reference global scores
+
+phase2:
+  smoothing_sigma: 2.0     # fixed Gaussian smoothing of the error map (pixels at model resolution)
+  topk_grid: [0.001, 0.005, 0.01, 0.02, 0.05]
+  lambda_grid: [0.0, 0.25, 0.5, 0.75, 1.0, 1.5, 2.0, 3.0]
+  normalization: mad      # mad | iqr  (fitted on VALIDATION reference scores only)
+  alpha_grid: [0.01, 0.02, 0.03, 0.04, 0.05, 0.075, 0.10, 0.125, 0.15, 0.20, 0.25, 0.30]
+  ablation_fixed_alpha: 0.05
+  cost_fn: 10.0
+  cost_fp: 1.0
+  max_flag_rate: null     # optional yield constraint on policy-validation flag rate (e.g. 0.98)
+
+localization:
+  phase1_pixel_quantile: 0.995   # Phase 1: fixed rule on raw error map (validation reference pixels)
+  pixel_quantile_grid: [0.95, 0.98, 0.99, 0.995, 0.998, 0.999, 0.9995]
+  morphology_grid: [0, 1, 2]     # binary opening radius (0 = none); selected on VALIDATION anomalies
+  pixel_auc_bins: 10000
+
+drift:
+  conditions:
+    - {name: clean,           type: none}
+    - {name: brightness+0.10, type: brightness, value: 0.10}
+    - {name: brightness-0.10, type: brightness, value: -0.10}
+    - {name: contrast0.70,    type: contrast,   value: 0.70}
+    - {name: gamma1.50,       type: gamma,      value: 1.50}
+    - {name: noise0.02,       type: noise,      value: 0.02}
+    - {name: noise0.05,       type: noise,      value: 0.05}
+    - {name: blur1.0,         type: blur,       value: 1.0}
+    - {name: blur2.0,         type: blur,       value: 2.0}
+  max_test_images: null   # set e.g. 1000 to subsample the drift test set on slow machines

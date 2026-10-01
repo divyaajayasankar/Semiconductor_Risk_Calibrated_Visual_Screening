@@ -1,0 +1,19 @@
+{
+  "phase1": {
+    "threshold": 0.0005323491059243679,
+    "morph_radius": 0,
+    "map": "raw",
+    "rule": "0.995-quantile of VALIDATION reference raw pixel errors",
+    "auc_max": 0.08940287679433823
+  },
+  "phase2": {
+    "threshold": 0.0012376393424347043,
+    "pixel_quantile": 0.998,
+    "morph_radius": 2,
+    "map": "gaussian_smoothed",
+    "smoothing_sigma": 2.0,
+    "val_dice": 0.6106176458264492,
+    "rule": "(quantile, opening radius) maximising mean Dice on VALIDATION anomalies",
+    "auc_max": 0.18005205690860748
+  }
+}

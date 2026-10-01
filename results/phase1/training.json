@@ -1,0 +1,11 @@
+{
+  "best_epoch": 116,
+  "best_val_loss": 3.5038249536781855e-05,
+  "epochs_run": 136,
+  "train_seconds": 6163.8,
+  "device": "cpu",
+  "n_parameters": 591361,
+  "n_train_reference": 90,
+  "n_val_reference": 23,
+  "status": "trained"
+}

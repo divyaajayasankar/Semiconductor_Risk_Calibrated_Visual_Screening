@@ -1,0 +1,47 @@
+{
+  "roc_auc": 1.0,
+  "pr_auc": 1.0,
+  "accuracy": 0.9990319457889641,
+  "balanced_accuracy": 0.9666666666666667,
+  "precision": 0.9990186457311089,
+  "recall": 1.0,
+  "specificity": 0.9333333333333333,
+  "f1": 0.9995090819833087,
+  "fpr": 0.06666666666666667,
+  "fnr": 0.0,
+  "tn": 42,
+  "fp": 3,
+  "fn": 0,
+  "tp": 3054,
+  "confusion_matrix": [
+    [
+      42,
+      3
+    ],
+    [
+      0,
+      3054
+    ]
+  ],
+  "n": 3099,
+  "n_reference": 45,
+  "n_anomaly": 3054,
+  "total_cost": 3.0,
+  "cost_per_image": 0.000968054211035818,
+  "fn_cost": 0.0,
+  "fp_cost": 3.0,
+  "decision_threshold": 9.72116831690073e-05,
+  "threshold_source": "0.950-quantile of CALIBRATION reference global scores (finite-sample corrected)",
+  "calibration_reference_size": 45,
+  "score": "global reconstruction MSE",
+  "localization": {
+    "dice": 0.4073057960128068,
+    "iou": 0.264311197065966,
+    "dice_median": 0.4040272739850579,
+    "pixel_auroc": 0.9204884715000026,
+    "pixel_ap": 0.4472681822144039,
+    "n_anomalous_images": 3054,
+    "threshold": 0.0005323491059243679,
+    "morph_radius": 0
+  }
+}

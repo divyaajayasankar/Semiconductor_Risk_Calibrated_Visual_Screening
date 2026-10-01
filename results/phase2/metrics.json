@@ -1,0 +1,118 @@
+{
+  "roc_auc": 1.0,
+  "pr_auc": 1.0,
+  "accuracy": 0.9990319457889641,
+  "balanced_accuracy": 0.9666666666666667,
+  "precision": 0.9990186457311089,
+  "recall": 1.0,
+  "specificity": 0.9333333333333333,
+  "f1": 0.9995090819833087,
+  "fpr": 0.06666666666666667,
+  "fnr": 0.0,
+  "tn": 42,
+  "fp": 3,
+  "fn": 0,
+  "tp": 3054,
+  "confusion_matrix": [
+    [
+      42,
+      3
+    ],
+    [
+      0,
+      3054
+    ]
+  ],
+  "n": 3099,
+  "n_reference": 45,
+  "n_anomaly": 3054,
+  "total_cost": 3.0,
+  "cost_per_image": 0.000968054211035818,
+  "fn_cost": 0.0,
+  "fp_cost": 3.0,
+  "selected_topk": 0.001,
+  "selected_lambda": 1.0,
+  "selected_alpha": 0.03,
+  "calibration_reference_size": 45,
+  "min_attainable_p": 0.021739130434782608,
+  "score": "fused robust z-score -> conformal p-value",
+  "pvalue_diagnostics": {
+    "n_reference": 45,
+    "n_anomaly": 3054,
+    "per_alpha": [
+      {
+        "alpha": 0.01,
+        "reference_flag_rate": 0.0,
+        "anomaly_detection_rate": 0.0
+      },
+      {
+        "alpha": 0.02,
+        "reference_flag_rate": 0.0,
+        "anomaly_detection_rate": 0.0
+      },
+      {
+        "alpha": 0.03,
+        "reference_flag_rate": 0.06666666666666667,
+        "anomaly_detection_rate": 1.0
+      },
+      {
+        "alpha": 0.04,
+        "reference_flag_rate": 0.06666666666666667,
+        "anomaly_detection_rate": 1.0
+      },
+      {
+        "alpha": 0.05,
+        "reference_flag_rate": 0.06666666666666667,
+        "anomaly_detection_rate": 1.0
+      },
+      {
+        "alpha": 0.075,
+        "reference_flag_rate": 0.06666666666666667,
+        "anomaly_detection_rate": 1.0
+      },
+      {
+        "alpha": 0.1,
+        "reference_flag_rate": 0.08888888888888889,
+        "anomaly_detection_rate": 1.0
+      },
+      {
+        "alpha": 0.125,
+        "reference_flag_rate": 0.08888888888888889,
+        "anomaly_detection_rate": 1.0
+      },
+      {
+        "alpha": 0.15,
+        "reference_flag_rate": 0.15555555555555556,
+        "anomaly_detection_rate": 1.0
+      },
+      {
+        "alpha": 0.2,
+        "reference_flag_rate": 0.2,
+        "anomaly_detection_rate": 1.0
+      },
+      {
+        "alpha": 0.25,
+        "reference_flag_rate": 0.28888888888888886,
+        "anomaly_detection_rate": 1.0
+      },
+      {
+        "alpha": 0.3,
+        "reference_flag_rate": 0.4,
+        "anomaly_detection_rate": 1.0
+      }
+    ],
+    "median_p_reference": 0.5434782608695652,
+    "median_p_anomaly": 0.021739130434782608,
+    "min_attainable_p": null
+  },
+  "localization": {
+    "dice": 0.5956649499704324,
+    "iou": 0.4426158057840557,
+    "dice_median": 0.6369973973342706,
+    "pixel_auroc": 0.9768604822296184,
+    "pixel_ap": 0.5490553970581652,
+    "n_anomalous_images": 3054,
+    "threshold": 0.0012376393424347043,
+    "morph_radius": 2
+  }
+}

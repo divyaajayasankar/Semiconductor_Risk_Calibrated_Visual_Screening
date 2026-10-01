@@ -1,0 +1,135 @@
+{
+  "title": "Risk-Calibrated and Cost-Aware Anomaly Detection Visual Screening for Semiconductor Manufacturing Under Distribution Drift",
+  "timestamp": "2026-10-01 14:42:03",
+  "python": "3.11.9",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "packages": {
+    "torch": "2.14.1+cpu",
+    "numpy": "2.4.6",
+    "pandas": "3.0.6",
+    "scikit-learn": "1.9.1",
+    "scipy": "1.17.1",
+    "Pillow": "12.3.0",
+    "matplotlib": "3.11.2",
+    "streamlit": "1.64.0",
+    "plotly": "7.1.0",
+    "PyYAML": "6.0.3"
+  },
+  "device": "cpu",
+  "seed": 42,
+  "dataset_counts": {
+    "csv_rows": 4591,
+    "images_found": 4591,
+    "masks_found": 4591,
+    "empty_masks_reference": 226,
+    "non_empty_masks_anomaly": 4365
+  },
+  "split_manifest_sha256": "937f62383fb317dd",
+  "checkpoint_sha256": "7940d91ae2e3593b",
+  "rcc_policy_sha256": "50d02997ab534654",
+  "hyperparameters": {
+    "data": {
+      "image_size": 256,
+      "mask_threshold": 128
+    },
+    "model": {
+      "base_channels": 32,
+      "latent_channels": 64
+    },
+    "training": {
+      "epochs": 150,
+      "batch_size": 8,
+      "learning_rate": 0.001,
+      "weight_decay": 1e-05,
+      "patience": 20,
+      "augment": true,
+      "device": "auto",
+      "eval_batch_size": 16
+    },
+    "phase1": {
+      "threshold_quantile": 0.95
+    },
+    "phase2": {
+      "smoothing_sigma": 2.0,
+      "topk_grid": [
+        0.001,
+        0.005,
+        0.01,
+        0.02,
+        0.05
+      ],
+      "lambda_grid": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0,
+        1.5,
+        2.0,
+        3.0
+      ],
+      "normalization": "mad",
+      "alpha_grid": [
+        0.01,
+        0.02,
+        0.03,
+        0.04,
+        0.05,
+        0.075,
+        0.1,
+        0.125,
+        0.15,
+        0.2,
+        0.25,
+        0.3
+      ],
+      "ablation_fixed_alpha": 0.05,
+      "cost_fn": 10.0,
+      "cost_fp": 1.0,
+      "max_flag_rate": null
+    },
+    "localization": {
+      "phase1_pixel_quantile": 0.995,
+      "pixel_quantile_grid": [
+        0.95,
+        0.98,
+        0.99,
+        0.995,
+        0.998,
+        0.999,
+        0.9995
+      ],
+      "morphology_grid": [
+        0,
+        1,
+        2
+      ],
+      "pixel_auc_bins": 10000
+    }
+  },
+  "selected": {
+    "topk": 0.001,
+    "lambda": 1.0,
+    "alpha": 0.03,
+    "phase1_threshold": 9.72116831690073e-05
+  },
+  "metric_files": [
+    "results\\dataset\\leakage_report.json",
+    "results\\dataset\\verification.json",
+    "results\\phase1\\metrics.json",
+    "results\\phase1\\training.json",
+    "results\\phase2\\metrics.json",
+    "results\\ablation\\ablation.csv",
+    "results\\dataset\\image_metadata.csv",
+    "results\\dataset\\split_manifest.csv",
+    "results\\drift\\drift_metrics.csv",
+    "results\\drift\\drift_summary.csv",
+    "results\\phase1\\predictions.csv",
+    "results\\phase1\\training_history.csv",
+    "results\\phase2\\predictions.csv",
+    "results\\phase2\\selection_alpha_policy_validation.csv",
+    "results\\phase2\\selection_localization_validation.csv",
+    "results\\phase2\\selection_topk_lambda_validation.csv"
+  ],
+  "git_commit": null
+}
