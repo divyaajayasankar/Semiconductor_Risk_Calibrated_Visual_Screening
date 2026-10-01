@@ -13,3 +13,16 @@ __pycache__/
 smoke_runs/
 *.db
 
+
+paper/
+*.tex
+*.bst
+*.bib
+*.cls
+*.sty
+*.aux
+*.log
+*.bbl
+*.blg
+*.synctex.gz
+
